@@ -1,0 +1,29 @@
+mysql> CREATE TABLE bookings (
+    -> booking_id INT,
+    -> user_id INT NOT NULL,
+    -> car_id INT NOT NULL,
+    -> start_date DATE NOT NULL,
+    -> end_date DATE NOT NULL,
+    -> total_price DECIMAL(10,2) NOT NULL,
+    -> status VARCHAR(20) NOT NULL,
+    -> CONSTRAINT booking_car_pk PRIMARY KEY (booking_id),
+    -> CONSTRAINT user_book_fk FOREIGN KEY (user_id) REFERENCES users(user_id),
+    -> CONSTRAINT car_book_fk FOREIGN KEY (car_id) REFERENCES cars(car_id)
+    -> );
+Query OK, 0 rows affected (0.14 sec)
+
+mysql> DESC BOOKINGS;
++-------------+---------------+------+-----+---------+-------+
+| Field       | Type          | Null | Key | Default | Extra |
++-------------+---------------+------+-----+---------+-------+
+| booking_id  | int           | NO   | PRI | NULL    |       |
+| user_id     | int           | NO   | MUL | NULL    |       |
+| car_id      | int           | NO   | MUL | NULL    |       |
+| start_date  | date          | NO   |     | NULL    |       |
+| end_date    | date          | NO   |     | NULL    |       |
+| total_price | decimal(10,2) | NO   |     | NULL    |       |
+| status      | varchar(20)   | NO   |     | NULL    |       |
++-------------+---------------+------+-----+---------+-------+
+7 rows in set (0.04 sec)
+
+mysql>

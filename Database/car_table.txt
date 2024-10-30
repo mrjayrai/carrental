@@ -1,0 +1,28 @@
+mysql> CREATE TABLE Cars (
+    ->     car_id INT,
+    ->     car_company VARCHAR(20) NOT NULL,
+    ->     car_model VARCHAR(20) NOT NULL,
+    ->     car_year YEAR NOT NULL,
+    ->     license_plate VARCHAR(15) NOT NULL,
+    ->     car_type VARCHAR(15) NOT NULL,
+    ->     price_per_day DECIMAL(10,2) NOT NULL,
+    ->     CONSTRAINT car_pk PRIMARY KEY (car_id),
+    ->     CONSTRAINT lic_uniq UNIQUE (license_plate)
+    -> );
+Query OK, 0 rows affected (0.11 sec)
+
+mysql> DESC CARS;
++---------------+---------------+------+-----+---------+-------+
+| Field         | Type          | Null | Key | Default | Extra |
++---------------+---------------+------+-----+---------+-------+
+| car_id        | int           | NO   | PRI | NULL    |       |
+| car_company   | varchar(20)   | NO   |     | NULL    |       |
+| car_model     | varchar(20)   | NO   |     | NULL    |       |
+| car_year      | year          | NO   |     | NULL    |       |
+| license_plate | varchar(15)   | NO   | UNI | NULL    |       |
+| car_type      | varchar(15)   | NO   |     | NULL    |       |
+| price_per_day | decimal(10,2) | NO   |     | NULL    |       |
++---------------+---------------+------+-----+---------+-------+
+7 rows in set (0.03 sec)
+
+mysql>

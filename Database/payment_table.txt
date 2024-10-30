@@ -1,0 +1,26 @@
+mysql> CREATE TABLE payments (
+    -> payment_id INT,
+    -> booking_id INT,
+    -> amount DECIMAL(10,2) NOT NULL,
+    -> payment_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    -> payment_method ENUM('CREDIT_CARD', 'DEBIT_CARD', 'CASH', 'ONLINE'),
+    -> status ENUM('PENDING', 'PAID', 'FAILED') DEFAULT 'PENDING',
+    -> CONSTRAINT payment_pk PRIMARY KEY (payment_id),
+    -> CONSTRAINT payment_book_fk FOREIGN KEY (booking_id) REFERENCES bookings(booking_id)
+    -> );
+Query OK, 0 rows affected (0.07 sec)
+
+mysql> desc payments;
++----------------+--------------------------------------------------+------+-----+-------------------+-------------------+
+| Field          | Type                                             | Null | Key | Default           | Extra             |
++----------------+--------------------------------------------------+------+-----+-------------------+-------------------+
+| payment_id     | int                                              | NO   | PRI | NULL              |                   |
+| booking_id     | int                                              | YES  | MUL | NULL              |                   |
+| amount         | decimal(10,2)                                    | NO   |     | NULL              |                   |
+| payment_date   | timestamp                                        | YES  |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED |
+| payment_method | enum('CREDIT_CARD','DEBIT_CARD','CASH','ONLINE') | YES  |     | NULL              |                   |
+| status         | enum('PENDING','PAID','FAILED')                  | YES  |     | PENDING           |                   |
++----------------+--------------------------------------------------+------+-----+-------------------+-------------------+
+6 rows in set (0.02 sec)
+
+mysql>

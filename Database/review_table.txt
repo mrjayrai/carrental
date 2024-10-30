@@ -1,0 +1,28 @@
+mysql> CREATE TABLE rating_review (
+    -> review_id INT,
+    -> user_id INT,
+    -> booking_id INT,
+    -> rating INT,
+    -> review_text TEXT,
+    -> review_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    -> CONSTRAINT rating_pk PRIMARY KEY (review_id),
+    -> CONSTRAINT user_review_fk FOREIGN KEY (user_id) REFERENCES users(user_id),
+    -> CONSTRAINT booking_review_fk FOREIGN KEY (booking_id) REFERENCES bookings(booking_id),
+    -> CONSTRAINT rating_check CHECK (rating BETWEEN 1 AND 5)
+    -> );
+Query OK, 0 rows affected (0.10 sec)
+
+mysql> DESC rating_review;
++-------------+-----------+------+-----+-------------------+-------------------+
+| Field       | Type      | Null | Key | Default           | Extra             |
++-------------+-----------+------+-----+-------------------+-------------------+
+| review_id   | int       | NO   | PRI | NULL              |                   |
+| user_id     | int       | YES  | MUL | NULL              |                   |
+| booking_id  | int       | YES  | MUL | NULL              |                   |
+| rating      | int       | YES  |     | NULL              |                   |
+| review_text | text      | YES  |     | NULL              |                   |
+| review_date | timestamp | YES  |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED |
++-------------+-----------+------+-----+-------------------+-------------------+
+6 rows in set (0.02 sec)
+
+mysql>

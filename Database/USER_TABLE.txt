@@ -1,0 +1,28 @@
+mysql> CREATE TABLE Users (
+    ->     user_id INT,
+    ->     email VARCHAR(50) NOT NULL,
+    ->     password VARCHAR(300) NOT NULL,
+    ->     phone_number VARCHAR(10) NOT NULL,
+    ->     role INT,
+    ->     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    ->     CONSTRAINT user_pk PRIMARY KEY (user_id),
+    ->     CONSTRAINT user_role_fk FOREIGN KEY (role) REFERENCES roles(role_id),
+    ->     CONSTRAINT email_unique UNIQUE (email),
+    ->     CONSTRAINT created_at_unique UNIQUE (created_at)
+    -> );
+Query OK, 0 rows affected (0.11 sec)
+
+mysql> DESC USERS;
++--------------+--------------+------+-----+-------------------+-------------------+
+| Field        | Type         | Null | Key | Default           | Extra             |
++--------------+--------------+------+-----+-------------------+-------------------+
+| user_id      | int          | NO   | PRI | NULL              |                   |
+| email        | varchar(50)  | NO   | UNI | NULL              |                   |
+| password     | varchar(300) | NO   |     | NULL              |                   |
+| phone_number | varchar(10)  | NO   |     | NULL              |                   |
+| role         | int          | YES  | MUL | NULL              |                   |
+| created_at   | timestamp    | YES  | UNI | CURRENT_TIMESTAMP | DEFAULT_GENERATED |
++--------------+--------------+------+-----+-------------------+-------------------+
+6 rows in set (0.00 sec)
+
+mysql>
