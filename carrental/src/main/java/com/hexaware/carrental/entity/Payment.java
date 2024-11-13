@@ -1,5 +1,9 @@
 package com.hexaware.carrental.entity;
-
+/*
+ * @Author: Rajeshwari 
+ * Description: Created POJO class for Payments
+ * Date: 9th Nov 24
+ */
 import java.time.LocalDateTime;
 
 public class Payment {
