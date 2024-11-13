@@ -3,8 +3,8 @@ package com.hexaware.carrental.entity;
 import java.time.LocalDateTime;
 
 public class Payment {
-	 private Integer paymentId;
-	    private Integer bookingId;
+	 private int paymentId;
+	    private int bookingId;
 	    private Double amount;
 	    private LocalDateTime paymentDate;
 	    private PaymentMethod paymentMethod;
@@ -18,7 +18,7 @@ public class Payment {
 		public Payment() {
 			super();
 		}
-		public Payment(Integer paymentId, Integer bookingId, Double amount, LocalDateTime paymentDate,
+		public Payment(int paymentId, int bookingId, Double amount, LocalDateTime paymentDate,
 				PaymentMethod paymentMethod, Status status) {
 			super();
 			this.paymentId = paymentId;
@@ -28,16 +28,16 @@ public class Payment {
 			this.paymentMethod = paymentMethod;
 			this.status = status;
 		}
-		public Integer getPaymentId() {
+		public int getPaymentId() {
 			return paymentId;
 		}
-		public void setPaymentId(Integer paymentId) {
+		public void setPaymentId(int paymentId) {
 			this.paymentId = paymentId;
 		}
-		public Integer getBookingId() {
+		public int getBookingId() {
 			return bookingId;
 		}
-		public void setBookingId(Integer bookingId) {
+		public void setBookingId(int bookingId) {
 			this.bookingId = bookingId;
 		}
 		public Double getAmount() {
